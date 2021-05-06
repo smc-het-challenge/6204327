@@ -1,0 +1,207 @@
+{
+    "a_galaxy_workflow": "true", 
+    "format-version": "0.1", 
+    "name": "Ccube_Standard_FP_Fix", 
+    "steps": {
+        "1": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "22283119-c231-4bb8-a7ce-3c02042685fd", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "CNA_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 355, 
+                "left": 191
+            }, 
+            "tool_state": "{\"name\": \"CNA_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 1, 
+            "name": "Input dataset"
+        }, 
+        "0": {
+            "tool_id": null, 
+            "content_id": null, 
+            "uuid": "7a78ecc9-7f98-4027-b86d-51b8e5d559b8", 
+            "tool_version": null, 
+            "outputs": [], 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "VCF_INPUT"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 243, 
+                "left": 191
+            }, 
+            "tool_state": "{\"name\": \"VCF_INPUT\"}", 
+            "label": null, 
+            "type": "data_input", 
+            "id": 0, 
+            "name": "Input dataset"
+        }, 
+        "3": {
+            "tool_id": "smc_het_eval", 
+            "content_id": "smc_het_eval", 
+            "uuid": "e0ce9523-df85-4957-9ed1-e391fb820692", 
+            "tool_version": "0.1.0", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "outfile"
+                }
+            ], 
+            "post_job_actions": {}, 
+            "workflow_outputs": [
+                {
+                    "output_name": "outfile", 
+                    "uuid": "b14c643c-4323-4197-87ef-f301e84f982d", 
+                    "label": null
+                }
+            ], 
+            "annotation": "", 
+            "input_connections": {
+                "cocluster_assignment|predfile": {
+                    "output_name": "2B.txt", 
+                    "id": 2
+                }, 
+                "proportion|predfile": {
+                    "output_name": "1C.txt", 
+                    "id": 2
+                }, 
+                "cellularity|predfile": {
+                    "output_name": "1A.txt", 
+                    "id": 2
+                }, 
+                "cluster_assignment|predfile": {
+                    "output_name": "2A.txt", 
+                    "id": 2
+                }, 
+                "population|predfile": {
+                    "output_name": "1B.txt", 
+                    "id": 2
+                }
+            }, 
+            "inputs": [
+                {
+                    "name": "sample", 
+                    "description": "runtime parameter for tool SMC-Het Evaluator"
+                }
+            ], 
+            "tool_errors": null, 
+            "position": {
+                "top": 300, 
+                "left": 972.5
+            }, 
+            "tool_state": "{\"cocluster_assignment\": \"{\\\"ancestor\\\": {\\\"submit\\\": \\\"no\\\", \\\"__current_case__\\\": 1}, \\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"__page__\": 0, \"approx\": \"{\\\"enable\\\": \\\"no\\\", \\\"__current_case__\\\": 1}\", \"__rerun_remap_job_id__\": null, \"proportion\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"sample\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"cellularity\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"cluster_assignment\": \"{\\\"predfile\\\": null, \\\"phylogeny\\\": {\\\"submit\\\": \\\"no\\\", \\\"__current_case__\\\": 1}, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\", \"population\": \"{\\\"predfile\\\": null, \\\"submit\\\": \\\"yes\\\", \\\"__current_case__\\\": 0}\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 3, 
+            "name": "SMC-Het Evaluator"
+        }, 
+        "2": {
+            "tool_id": "ccube_fp", 
+            "content_id": "ccube_fp", 
+            "uuid": "ccbf1d33-775d-415d-b41e-c9b1d0f7ea2a", 
+            "tool_version": "0.1.1", 
+            "outputs": [
+                {
+                    "type": "txt", 
+                    "name": "1A.txt"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "1B.txt"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "1C.txt"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "2A.txt"
+                }, 
+                {
+                    "type": "txt", 
+                    "name": "2B.txt"
+                }, 
+                {
+                    "type": "pdf", 
+                    "name": "clonal_results_summary.pdf"
+                }
+            ], 
+            "post_job_actions": {
+                "HideDatasetActionclonal_results_summary.pdf": {
+                    "output_name": "clonal_results_summary.pdf", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction2B.txt": {
+                    "output_name": "2B.txt", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction1B.txt": {
+                    "output_name": "1B.txt", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction1C.txt": {
+                    "output_name": "1C.txt", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction2A.txt": {
+                    "output_name": "2A.txt", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }, 
+                "HideDatasetAction1A.txt": {
+                    "output_name": "1A.txt", 
+                    "action_type": "HideDatasetAction", 
+                    "action_arguments": {}
+                }
+            }, 
+            "workflow_outputs": [], 
+            "annotation": "", 
+            "input_connections": {
+                "input_vcf": {
+                    "output_name": "output", 
+                    "id": 0
+                }, 
+                "battenberg_file": {
+                    "output_name": "output", 
+                    "id": 1
+                }
+            }, 
+            "inputs": [], 
+            "tool_errors": null, 
+            "position": {
+                "top": 244, 
+                "left": 492.5
+            }, 
+            "tool_state": "{\"__page__\": 0, \"__rerun_remap_job_id__\": null, \"input_vcf\": \"null\", \"battenberg_file\": \"null\"}", 
+            "label": null, 
+            "type": "tool", 
+            "id": 2, 
+            "name": "Ccube Tool: Standard - Filter FP"
+        }
+    }, 
+    "annotation": "", 
+    "uuid": "cedd331b-dea2-4cbe-af84-9836544009e6"
+}
